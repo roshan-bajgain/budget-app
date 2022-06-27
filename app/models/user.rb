@@ -8,4 +8,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true, length: { in: 1..15 }
   validates :surname, presence: true, length: { in: 1..15 }
+  def admin?(requested_role)
+    role == requested_role.to_s
+  end
 end
