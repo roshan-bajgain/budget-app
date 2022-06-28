@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ExpensesController < ApplicationController
     def index
         @group = Group.find(params[:group_id])
@@ -8,7 +10,7 @@ class ExpensesController < ApplicationController
             @total_amount += group_expense.expense.amount
         end
     end
-    
+
     def new
         @expense = Expense.new
       end
@@ -27,4 +29,3 @@ class ExpensesController < ApplicationController
         params.require(:expense).permit(:name, :amount)
       end
 end
-
