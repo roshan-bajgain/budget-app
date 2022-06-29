@@ -1,0 +1,25 @@
+<div>
+<div>
+  <%= image_tag ('hamburger-icon.png'), class: "w-8 h-8" %>
+  <div>
+    <h3>TRANSACTIONS</h3>
+    <p class="text-sm ml-8 mt-5">CREATE</p>
+  </div>
+  <%= image_tag ('search-icon.png'), class: "w-8 h-8" %>
+</div>
+  <h3> Add a new category</h3>
+  <%= form_with url: groups_path, scope: :group do |form| %>
+    <div>
+    <%= form.label :Name %><br>
+    <%= form.text_field :name, require: true %>
+    </div>
+
+    <div class="mt-2">
+    <%= form.label :icon_link %><br>
+    <%= form.text_field :icon, require: true %>
+    </div>
+
+    <%= form.submit "Submit" %>
+    <%= link_to 'Back', groups_path %>
+  <% end %>
+</div> 
