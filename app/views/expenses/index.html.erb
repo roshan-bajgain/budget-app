@@ -1,0 +1,30 @@
+<div>
+<%= render "header" %>
+  <div class="flex w-80 m-2">
+    <%= image_tag @group.icon, alt: 'icon' %>
+    <p><%= @group.name %></p>
+  </div>
+
+  <div>
+  <p class="text-gray-500">Total Payment</p>
+  <p class="font-semibold">$<%= @total_amount %></p>
+  </div>
+  <hr class="mt-3">
+  <% @expenses.each_with_index do |expense, index| %>
+  <div class="mt-6 w-80 text-gray-500">
+    <p>Transaction N<%= index+8567%> <%= expense.name %> </p>
+    <div class="flex mt-4 gap-2">
+      <%= image_tag ('calender-icon.png') %>
+      <p class="text-xs"><%= expense.created_at.strftime('%d %h %Y') %></p>
+    </div>
+
+    <div class="flex mt-4 justify-between">
+      <p>Payment</p>
+      <p class="text-slate-900 font-semibold">$<%= expense.amount %></p>
+  </div>
+  </div>
+  <hr class="mt-3">
+  <% end %>
+  <%= link_to 'Add new transaction', new_group_expense_path %>
+
+</div>
