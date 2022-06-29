@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class ExpensesController < ApplicationController
   def index
     @group = Group.find(params[:group_id])
